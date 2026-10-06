@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Frame</title>
+
+    <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene shadow="type: pcfsoft">
+
+        <a-camera position="0 1.6 0"></a-camera>
+
+
+        <a-plane
+            position="0 0 0"
+            rotation="-90 0 0"
+            width="30"
+            height="30"
+            color="#f0df8d"
+            shadow="receive: true">
+        </a-plane>
+
+
+        <a-entity
+            gltf-model="Models/GLB format/truck.glb"
+            position="0 0.517 0"
+            shadow="cast: true; receive: true"
+
+            animation__updown="
+                property: position;
+                from: 0 0.517 0;
+                to: 0 1 0;
+                dur: 2000;
+                loop: true;
+                dir: alternate;
+                easing: easeInOutSine"
+
+            animation__rotate="
+                property: rotation;
+                from: 0 0 0;
+                to: 0 360 0;
+                dur: 6000;
+                loop: true;
+                easing: linear">
+        </a-entity>
+
+        <a-entity
+            light="
+                type: directional;
+                intensity: 3;
+                castShadow: true"
+            position="0 8 2"
+            rotation="-90 0 0">
+        </a-entity>
+        <a-entity
+            light="type: ambient; intensity: 0.4">
+        </a-entity>
+
+    </a-scene>
+</body>
+</html>
